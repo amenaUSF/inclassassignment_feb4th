@@ -125,7 +125,7 @@ namespace inclass_feb4th
     */
 
     /*******************  9. using multiple classes *****************/
-    class Car
+    /*class Car
     {
         public string model;
         public string color;
@@ -135,13 +135,81 @@ namespace inclass_feb4th
             Console.WriteLine("The car is going as fast as it can!");
         }
     }
+    */
 
+    /********************** 10 . constructors **************************/
+    // Create a Car class
+    /*  class Car
+      {
+          public string model;  // Create a field
 
+          // Create a class constructor for the Car class
+          public Car()
+          {
+              model = "Mustang"; // Set the initial value for model
+          }
 
+          static void Main(string[] args)
+          {
+              Car Ford = new Car();  // Create an object of the Car Class (this will call the constructor)
+              Console.WriteLine(Ford.model);  // Print the value of model
+          }
+      }*/
 
+    /********************** 11. constructors with multiple parameters **************************/
+    /*    class Car
+        {
+            public string model;
+            public string color;
+            public int year;
 
+            // Create a class constructor with multiple parameters
+            public Car(string modelName, string modelColor, int modelYear)
+            {
+                model = modelName;
+                color = modelColor;
+                year = modelYear;
+            }
 
+            static void Main(string[] args)
+            {
+                Car Ford = new Car("Mustang", "Red", 1969);
+                Console.WriteLine(Ford.color + " " + Ford.year + " " + Ford.model);
+            }
+        }*/
 
+    /***************** 12. Private Modifier *******************/
+    /*  class Car
+       {
+           private string model;
+
+           public Car(string modelName)
+           {
+               model = modelName;
+           }
+           static void Main(string[] args)
+           {
+               Car Ford = new Car("Mustang");
+               Console.WriteLine(Ford.model);
+           }
+       }
+       */
+
+    /*********************************************/
+
+    class Car
+    {
+        public string model = "Mustang";
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Car myObj = new Car();
+            Console.WriteLine(myObj.model);
+        }
+    }
 
 }
 
