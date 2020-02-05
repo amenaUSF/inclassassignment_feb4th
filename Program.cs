@@ -37,16 +37,55 @@ namespace inclass_feb4th
         */
 
     /***************** 12. Private Modifier - accessing from another class *******************/
-  /*  class Program
+    /*  class Program
+      {
+          static void Main(string[] args)
+          {
+              Car Ford = new Car("Mustang");
+              Console.WriteLine(Ford.model);
+          }
+      }
+      */
+
+    /******************* 14. get and set methods for properties **************************/
+    /*class Person
+    {
+        private string name; // field
+        public string Name   // property
+        {
+            get { return name; }
+            set { name = value; }
+        }
+    }
+
+    class Program
     {
         static void Main(string[] args)
         {
-            Car Ford = new Car("Mustang");
-            Console.WriteLine(Ford.model);
+            Person myObj = new Person();
+            myObj.Name = "Liam";
+            Console.WriteLine(myObj.Name);
+        }
+    }*/
+
+    /**************************** 15. shortcut for get and set methods for properties *****************************/
+    /*Fields can be made read-only (if you only use the get method), or write-only (if you only use the set method)*/
+   /*
+    class Person
+    {
+        public string Name  // property
+        { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person myObj = new Person();
+            myObj.Name = "Liam";
+            Console.WriteLine(myObj.Name);
         }
     }
     */
-
-    /*********************************************/
 }
 
