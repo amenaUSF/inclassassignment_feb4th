@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;  // include the System.IO namespace
+
 
 namespace inclass_feb4th
 {
@@ -243,88 +245,273 @@ namespace inclass_feb4th
         }
         */
 
-   /********************* 17. inheritance 2 ***********************/
-/*    class Animal  // Base class (parent) 
-    {
-        public void animalSound()
+    /********************* 17. inheritance 2 ***********************/
+    /*    class Animal  // Base class (parent) 
         {
-            Console.WriteLine("The animal makes a sound");
+            public void animalSound()
+            {
+                Console.WriteLine("The animal makes a sound");
+            }
         }
-    }
 
-    class Pig : Animal  // Derived class (child) 
-    {
-        public void animalSound()
+        class Pig : Animal  // Derived class (child) 
         {
-            Console.WriteLine("The pig says: wee wee");
+            public void animalSound()
+            {
+                Console.WriteLine("The pig says: wee wee");
+            }
         }
-    }
 
-    class Dog : Animal  // Derived class (child) 
-    {
-        public void animalSound()
+        class Dog : Animal  // Derived class (child) 
         {
-            Console.WriteLine("The dog says: bow wow");
+            public void animalSound()
+            {
+                Console.WriteLine("The dog says: bow wow");
+            }
         }
-    }
 
-    class Program
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Animal myAnimal = new Animal();  // Create a Animal object
+                Animal myPig = new Pig();  // Create a Pig object
+                Animal myDog = new Dog();  // Create a Dog object
+
+                myAnimal.animalSound();
+                myPig.animalSound();
+                myDog.animalSound();
+            }
+        }
+    */
+
+    /************************* 18. Inheritance with virtual and override *****************************/
+    /*class Animal  // Base class (parent) 
+        {
+            public virtual void animalSound()
+            {
+                Console.WriteLine("The animal makes a sound");
+            }
+        }
+
+        class Pig : Animal  // Derived class (child) 
+        {
+            public override void animalSound()
+            {
+                Console.WriteLine("The pig says: wee wee");
+            }
+        }
+
+        class Dog : Animal  // Derived class (child) 
+        {
+            public override void animalSound()
+            {
+                Console.WriteLine("The dog says: bow wow");
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Animal myAnimal = new Animal();  // Create a Animal object
+                Animal myPig = new Pig();  // Create a Pig object
+                Animal myDog = new Dog();  // Create a Dog object
+
+                myAnimal.animalSound();
+                myPig.animalSound();
+                myDog.animalSound();
+            }
+        }
+    */
+    /******************* 19. Abstraction - abstract classes and methods ************************/
+    /* Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+    Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).*/
+
+    // Abstract class
+    /*   abstract class Animal
+       {
+           // Abstract method (does not have a body)
+           public abstract void animalSound();
+           // Regular method
+           public void sleep()
+           {
+               Console.WriteLine("Zzz");
+           }
+       }
+
+       // Derived class (inherit from Animal)
+       class Pig : Animal
+       {
+           public override void animalSound()
+           {
+               // The body of animalSound() is provided here
+               Console.WriteLine("The pig says: wee wee");
+           }
+       }
+
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               Pig myPig = new Pig(); // Create a Pig object
+               myPig.animalSound();  // Call the abstract method
+               myPig.sleep();  // Call the regular method
+           }
+       }
+
+   */
+
+    /******************* 20. Interface *************************/
+    // Interface
+    /*    interface IAnimal
+        {
+            void animalSound(); // interface method (does not have a body)
+        }
+
+        // Pig "implements" the IAnimal interface
+        class Pig : IAnimal
+        {
+            public void animalSound()
+            {
+                // The body of animalSound() is provided here
+                Console.WriteLine("The pig says: wee wee");
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Pig myPig = new Pig();  // Create a Pig object
+                myPig.animalSound();
+            }
+        }
+        */
+
+    /**************** 21. multiple interfaces ******************/
+    /*    interface IFirstInterface
+        {
+            void myMethod(); // interface method
+        }
+
+        interface ISecondInterface
+        {
+            void myOtherMethod(); // interface method
+        }
+
+        // Implement multiple interfaces
+        class DemoClass : IFirstInterface, ISecondInterface
+        {
+            public void myMethod()
+            {
+                Console.WriteLine("Some text..");
+            }
+            public void myOtherMethod()
+            {
+                Console.WriteLine("Some other text...");
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                DemoClass myObj = new DemoClass();
+                myObj.myMethod();
+                myObj.myOtherMethod();
+            }
+        }*/
+
+    /*************** 22. ENUMS *******************/
+    /*An enum is a special "class" that represents a group of constants (unchangeable/read-only variables).*/
+    /* class Program
+     {
+         enum Level
+         {
+             Low,
+             Medium,
+             High
+         }
+         static void Main(string[] args)
+         {
+             Level myVar = Level.Medium;
+             Console.WriteLine(myVar);
+         }
+     }*/
+
+    /********** 23. ENUM Values **************/
+    /*By default, the first item of an enum has the value 0. The second has the value 1, and so on.*/
+    /*class Program
     {
+        enum Months
+        {
+            January,    // 0
+            February,   // 1
+            March,      // 2
+            April,      // 3
+            May,        // 4
+            June,       // 5
+            July        // 6
+        }
+
         static void Main(string[] args)
         {
-            Animal myAnimal = new Animal();  // Create a Animal object
-            Animal myPig = new Pig();  // Create a Pig object
-            Animal myDog = new Dog();  // Create a Dog object
-
-            myAnimal.animalSound();
-            myPig.animalSound();
-            myDog.animalSound();
+            int myNum = (int)Months.April;
+            Console.WriteLine(myNum);
         }
-    }
-*/
+    }*/
 
-        /************************* 18. Inheritance with virtual and override *****************************/
-class Animal  // Base class (parent) 
+    /********* 24. Assigning your own ENUM Values *************/
+/*    class Program
     {
-        public virtual void animalSound()
+        enum Months
         {
-            Console.WriteLine("The animal makes a sound");
+            January,    // 0
+            February,   // 1
+            March = 6,      // 6
+            April,      // 7
+            May,        // 8
+            June,       // 9
+            July        // 10
         }
-    }
 
-    class Pig : Animal  // Derived class (child) 
-    {
-        public override void animalSound()
-        {
-            Console.WriteLine("The pig says: wee wee");
-        }
-    }
-
-    class Dog : Animal  // Derived class (child) 
-    {
-        public override void animalSound()
-        {
-            Console.WriteLine("The dog says: bow wow");
-        }
-    }
-
-    class Program
-    {
         static void Main(string[] args)
         {
-            Animal myAnimal = new Animal();  // Create a Animal object
-            Animal myPig = new Pig();  // Create a Pig object
-            Animal myDog = new Dog();  // Create a Dog object
-
-            myAnimal.animalSound();
-            myPig.animalSound();
-            myDog.animalSound();
+            int myNum = (int)Months.April;
+            Console.WriteLine(myNum);
         }
     }
+    */
+    /***************** 25. ENUM in a switch statement ****************/
+/*class program
+    {
+        enum Level
+    {
+        Low,
+        Medium,
+        High
+    }
 
-    /*******************************************/
+    static void Main(string[] args)
+    {
+        Level myVar = Level.Medium;
+        switch (myVar)
+        {
+            case Level.Low:
+                Console.WriteLine("Low level");
+                break;
+            case Level.Medium:
+                Console.WriteLine("Medium level");
+                    Console.WriteLine(Level.Medium);
+                break;
+            case Level.High:
+                Console.WriteLine("High level");
+                break;
+        }
+    }
+}*/
 
-
-
+    /***************** 26. Working with Files *******************/
 }
 
