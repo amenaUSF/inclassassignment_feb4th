@@ -463,55 +463,151 @@ namespace inclass_feb4th
     }*/
 
     /********* 24. Assigning your own ENUM Values *************/
-/*    class Program
-    {
-        enum Months
+    /*    class Program
         {
-            January,    // 0
-            February,   // 1
-            March = 6,      // 6
-            April,      // 7
-            May,        // 8
-            June,       // 9
-            July        // 10
+            enum Months
+            {
+                January,    // 0
+                February,   // 1
+                March = 6,      // 6
+                April,      // 7
+                May,        // 8
+                June,       // 9
+                July        // 10
+            }
+
+            static void Main(string[] args)
+            {
+                int myNum = (int)Months.April;
+                Console.WriteLine(myNum);
+            }
+        }
+        */
+    /***************** 25. ENUM in a switch statement ****************/
+    /*class program
+        {
+            enum Level
+        {
+            Low,
+            Medium,
+            High
         }
 
         static void Main(string[] args)
         {
-            int myNum = (int)Months.April;
-            Console.WriteLine(myNum);
+            Level myVar = Level.Medium;
+            switch (myVar)
+            {
+                case Level.Low:
+                    Console.WriteLine("Low level");
+                    break;
+                case Level.Medium:
+                    Console.WriteLine("Medium level");
+                        Console.WriteLine(Level.Medium);
+                    break;
+                case Level.High:
+                    Console.WriteLine("High level");
+                    break;
+            }
+        }
+    }*/
+
+    /***************** 26. Working with Files *******************/
+   /* class Program {
+
+        static void Main(string[] args)
+        {
+            string writeText = "Hello World!";  // Create a text string
+            File.WriteAllText("filename.txt", writeText);  // Create a file and write the content of writeText to it
+
+            string readText = File.ReadAllText("filename.txt");  // Read the contents of the file
+            Console.WriteLine(readText);  // Output the content
+
         }
     }
     */
-    /***************** 25. ENUM in a switch statement ****************/
-/*class program
-    {
-        enum Level
-    {
-        Low,
-        Medium,
-        High
-    }
 
-    static void Main(string[] args)
+    /********** 27. Working with Exceptions - default try catch **************/
+
+  /*  class Program
     {
-        Level myVar = Level.Medium;
-        switch (myVar)
+
+        static void Main(string[] args)
         {
-            case Level.Low:
-                Console.WriteLine("Low level");
-                break;
-            case Level.Medium:
-                Console.WriteLine("Medium level");
-                    Console.WriteLine(Level.Medium);
-                break;
-            case Level.High:
-                Console.WriteLine("High level");
-                break;
-        }
-    }
-}*/
+            try
+            {
+                int[] myNumbers = { 1, 2, 3 };
+                Console.WriteLine(myNumbers[10]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-    /***************** 26. Working with Files *******************/
+        }
+    }*/
+
+    /**************** 28. Working with Exception - customized message ************/
+   /*  class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int[] myNumbers = { 1, 2, 3 };
+                Console.WriteLine(myNumbers[10]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("custom exception message");
+            }
+
+        }
+    }*/
+
+    /************ 29. Working with throw catch AND Finally ***************/
+   /* class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int[] myNumbers = { 1, 2, 3 };
+                Console.WriteLine(myNumbers[10]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong.");
+            }
+            finally
+            {
+                Console.WriteLine("The 'try catch' is finished.");
+            }
+        }
+    }*/
+
+    /*********** 30. The throw statement allows you to create a custom error **********************/
+    class Program
+    {
+        static void checkAge(int age)
+        {
+            if (age < 18)
+            {
+                
+                throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+            }
+            else
+            {
+                Console.WriteLine("Access granted - You are old enough!");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            checkAge(15);
+        }
+         
+}
+
 }
 
